@@ -27,7 +27,7 @@ resource "aws_iam_policy" "policy" {
     {
       region        = var.region,
       instance      = var.instance,
-      loggroup_name = join("_", [var.environ_tag, "starter"])
+      loggroup_name = join("_", [var.environ_tag, "function"])
     }
   )
 
@@ -63,7 +63,7 @@ resource "aws_lambda_function" "function" {
 
 # Setup the EventBridge rule and attach it to the function
 resource "aws_cloudwatch_event_rule" "event_rule" {
-  name                = join("_", [var.environ_tag, "_event_rule"])
+  name                = join("_", [var.environ_tag, "event_rule"])
   description         = "Run and stop a server"
   schedule_expression = var.eventbridge_expression
 
