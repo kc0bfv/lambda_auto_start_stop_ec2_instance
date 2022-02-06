@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "aws_admin"
   region  = var.region
 }
 
