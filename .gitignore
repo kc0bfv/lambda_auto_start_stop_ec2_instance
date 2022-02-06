@@ -1,0 +1,4 @@
+secrets.tf
+*.tfstate*
+.terraform*
+manage_instance.zip

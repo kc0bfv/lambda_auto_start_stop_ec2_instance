@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+          "Action": [
+            "ec2:StartInstances",
+            "ec2:StopInstances",
+            "ec2:DescribeInstanceStatus",
+            "ec2:DescribeInstances"
+          ],
+          "Resource": [
+            "arn:aws:ec2:${region}:*:instance/${instance}"
+          ],
+          "Effect": "Allow"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:PutLogEventsBatch"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/${loggroup_name}:*"
+        }
+    ]
+}
